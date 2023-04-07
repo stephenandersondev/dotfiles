@@ -1,0 +1,40 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Stephen Anderson
+	email = stephenandersondev@gmail.com
+[core]
+  # Don't paginate output by default
+  pager = cat
+  # VSCode
+  editor = code --wait
+  # Don't consider trailing space change as a cause for merge conflicts
+  whitespace = -trailing-space
+[alias]
+  st = status
+  cm = commit -m
+  co = checkout
+  cob = checkout -b
+  del = branch -D
+  br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+  lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
+  last = log -1 HEAD --stat
+[color]
+  # Enable colors in color-supporting terminals
+  ui = auto
+[submodule]
+	recurse = true
+[diff]
+  # Use better, descriptive initials (c, i, w) instead of a/b.
+  mnemonicPrefix = true
+  # Show renames/moves as such
+  renames = true
+  # Use VSCode as default diff tool when running `git diff-tool`
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[push]
+	autoSetupRemote = true

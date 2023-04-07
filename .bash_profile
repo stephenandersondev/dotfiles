@@ -21,7 +21,7 @@ export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Aliases
+# General Aliases
 alias tailrd="tail -f log/development.log"
 alias tailrt="tail -f log/test.log"
 alias tailrs="tail -f log/sidekiq.log"
